@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {ScrollView, SafeAreaView, Text } from "react-native";
-import CompetitionEntry from "./CompetitionEntry"
+import CompetitionPreview from "./CompetitionPreview"
 
 // Currently Implements some tests for voting system, in which a max number of votes 
 // Are enforced per compentition
@@ -8,19 +8,16 @@ import CompetitionEntry from "./CompetitionEntry"
 // Hardcoded set of video submissions
 var entries = [
 	{
-		user: "mattG",
-		vid: 'http://cs-people.bu.edu/elissone/testData/matt.mp4',
-		numVotes: 0
+		user: 'mattG',
+		vid: 'http://cs-people.bu.edu/elissone/testData/matt.mp4'
 	},
 	{
-		user: "larnelL",
-		vid: 'http://cs-people.bu.edu/elissone/testData/larnell.mp4',
-		numVotes: 0
+		user: 'larnelL',
+		vid: 'http://cs-people.bu.edu/elissone/testData/larnell.mp4'
 	},
 	{
-		user: "SomeDudeThatSucks",
-		vid: 'http://cs-people.bu.edu/elissone/testData/elisson.mp4',
-		numVotes: 0,
+		user: 'SomeDudeThatIsLessGood',
+		vid: 'http://cs-people.bu.edu/elissone/testData/elisson.mp4'
 	}
 ];
 
@@ -28,34 +25,52 @@ var entries = [
 var competitions = [
 	{
 		compTitle: "Jacob Collier's Competition",
-		compDescription: "Submit Polyrhythms, SuperUltraHyperMegaMeta Lydian scales, + more unecessary flexes",
+		compDescription: "Submit all your musical flexes!",
 		prize: "A cool t-shirt!",
+		photo: require("./../assets/test_photos/503jam.jpg"),
 		host: "Jacob Collier",
-		dateAdded: "11/11/19",
-		entries: entries
+		entries: Object.assign(entries)
 	},
 	{
 		compTitle: "Plini's Competition",
-		compDescription: "Remix Salt n Charcoal",
+		compDescription: "Remix My Song Salt and Charcoal",
 		prize: "Concert Tickets to my upcoming show",
+		photo: require("./../assets/test_photos/ableton.png"),
 		host: "Plini H",
-		dateAdded: "11/11/19",
-		entries: entries
+		entries: Object.assign(entries)
 	}
 ];
 
-// Meant to show available competitions
-// CURRENT STATE: Shows a series of sample competition entries (no voting system)
-// TODO: Replace the former with the latter
+// Shows available competitions
 export default class HomeScreen extends Component {
+  static navigationOptions = {
+    title: 'Home',
+  };
+
   render() {
+  	const style = {
+  	  main: {
+  		padding: 10, 
+        flex: 1, 
+        justifyContent: 'center', 
+        alignItems: 'center'
+  	  },
+      title: {
+        fontSize: 25,
+        fontWeight: "300",
+        paddingBottom: 20,
+        paddingTop: 10
+      }
+    };
     return(
-    	<SafeAreaView style={{flex: 1}}>
+    	<SafeAreaView style={style.main}>
+    	<Text style={style.title}>List of Available Competitions</Text>
 	      <ScrollView>
 	        {
-	        	entries.map(
-	        		(entry, index) => {
-	        			return <CompetitionEntry key={index} user={entry.user} vid={entry.vid}/>
+	        	competitions.map(
+	        		(comp, index) => {
+	        			return <CompetitionPreview key={index} details={comp}
+	        			navigation={this.props.navigation}/>
 	      			}
 	      		)
 	        }
