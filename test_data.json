@@ -5,6 +5,37 @@
 			"compDescription": "Submit all your musical flexes!",
 			"prize": "A cool t-shirt!",
 			"host": "Jacob Collier",
+			"tags": [
+				"Funk", 
+				"Fusion", 
+				"Producer"
+			],
+			"entries": [
+				{
+					"user": "mattG",
+					"vid": "http://cs-people.bu.edu/elissone/testData/matt.mp4"
+				},
+				{
+					"user": "larnelL",
+					"vid": "http://cs-people.bu.edu/elissone/testData/larnell.mp4"
+				},
+				{
+					"user": "SomeDudeThatIsLessGood",
+					"vid": "http://cs-people.bu.edu/elissone/testData/elisson.mp4"
+				}
+			]
+		}
+		,
+		{	
+			"compTitle": "Plini's Competition",
+			"compDescription": "Remix My Song Salt and Charcoal",
+			"prize": "Concert Tickets to my upcoming show",
+			"photo": "./../assets/test_photos/plini.jpg",
+			"host": "Plini H",
+			"tags": [
+				"Prog", 
+				"Metal"
+			],
 			"entries": [
 				{
 					"user": "mattG",
@@ -21,11 +52,15 @@
 			]
 		},
 		{	
-			"compTitle": "Plini's Competition",
-			"compDescription": "Remix My Song Salt and Charcoal",
+			"compTitle": "Mr.Bill's Competition",
+			"compDescription": "Make a banger!",
 			"prize": "Concert Tickets to my upcoming show",
 			"photo": "./../assets/test_photos/ableton.png",
-			"host": "Plini H",
+			"host": "Mr.Bill",
+			"tags": [
+				"Electronic", 
+				"Producer"
+			],
 			"entries": [
 				{
 					"user": "mattG",
@@ -40,7 +75,58 @@
 					"vid": "http://cs-people.bu.edu/elissone/testData/elisson.mp4"
 				}
 			]
-
+		},
+		{	
+			"compTitle": "Tosin's Thump-Off",
+			"compDescription": "Play \"the riff\" from the Woven Web",
+			"prize": "My brand new guitar plugin!",
+			"photo": "./../assets/test_photos/tosin.jpg",
+			"host": "Tosin Abasi",
+			"tags": [
+				"Fusion", 
+				"Prog", 
+				"Metal"
+			],
+			"entries": [
+				{
+					"user": "mattG",
+					"vid": "http://cs-people.bu.edu/elissone/testData/matt.mp4"
+				},
+				{
+					"user": "larnelL",
+					"vid": "http://cs-people.bu.edu/elissone/testData/larnell.mp4"
+				},
+				{
+					"user": "SomeDudeThatIsLessGood",
+					"vid": "http://cs-people.bu.edu/elissone/testData/elisson.mp4"
+				}
+			]
+		},
+		{	
+			"compTitle": "Roy Hargrove Memorial Competition",
+			"compDescription": "Cover Strasbourg/St.Denis to honor the late trumpet player",
+			"prize": "A new trumpet",
+			"photo": "./../assets/test_photos/roy.jpg",
+			"host": "Roy Hargrove",
+			"tags": [
+				"Jazz", 
+				"Funk", 
+				"Fusion"
+			],
+			"entries": [
+				{
+					"user": "mattG",
+					"vid": "http://cs-people.bu.edu/elissone/testData/matt.mp4"
+				},
+				{
+					"user": "larnelL",
+					"vid": "http://cs-people.bu.edu/elissone/testData/larnell.mp4"
+				},
+				{
+					"user": "SomeDudeThatIsLessGood",
+					"vid": "http://cs-people.bu.edu/elissone/testData/elisson.mp4"
+				}
+			]
 		}
 	]
 }

@@ -21,7 +21,10 @@ export const HomeNavigator = createStackNavigator(
 /* HARD-CODED TEST DATA HANDLER BEGIN */
 global.competitions = require("./test_data.json").competitions;
 global.competitions[0].photo = require("./assets/test_photos/503jam.jpg");
-global.competitions[1].photo = require("./assets/test_photos/ableton.png");
+global.competitions[1].photo = require("./assets/test_photos/plini.jpg");
+global.competitions[2].photo = require("./assets/test_photos/ableton.png");
+global.competitions[3].photo = require("./assets/test_photos/tosin.jpg");
+global.competitions[4].photo = require("./assets/test_photos/roy.jpg");
 /* HARD-CODED TEST DATA HANDLER END */
 
 
