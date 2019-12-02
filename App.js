@@ -18,6 +18,13 @@ export const HomeNavigator = createStackNavigator(
   }
 );
 
+export const SearchNavigator = createStackNavigator(
+  {
+    SearchFeed: {screen: SearchScreen},
+    Competition: {screen: Competition}
+  }
+);
+
 /* HARD-CODED TEST DATA HANDLER BEGIN */
 global.competitions = require("./test_data.json").competitions;
 global.competitions[0].photo = require("./assets/test_photos/503jam.jpg");
@@ -31,7 +38,7 @@ global.competitions[4].photo = require("./assets/test_photos/roy.jpg");
 const bottomTabNavigator = createBottomTabNavigator(
   {
     Home: HomeNavigator,
-    Search: SearchScreen,
+    Search: SearchNavigator,
     Record: MicrophoneScreen,
     Messages: MessageScreen,
     Profile: ProfileScreen,
