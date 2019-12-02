@@ -1,11 +1,12 @@
 import React from "react";
-import { SafeAreaView, Text, ScrollView} from "react-native";
+import { View, SafeAreaView, Text, ScrollView} from "react-native";
 import { SearchBar } from 'react-native-elements';
 import CompetitionPreview from "./CompetitionPreview";
 
 /*
  * TEMPORARY SIMPLE IMPLEMENTATION OF A SEARCH PAGE
  * Suggested Searches: Prog, Metal, Jazz, Fusion, Producer
+ * Search Bar: https://react-native-elements.github.io/react-native-elements/docs/searchbar.html
  */
 
 export default class SearchScreen extends React.Component {
@@ -19,6 +20,10 @@ export default class SearchScreen extends React.Component {
 		this.state = {search: '', competitionsToShow: []};
 	}
 
+	stringContains = (needle, heystack) => {
+		return heystack.toLowerCase().indexOf(needle.toLowerCase()) >= 0;
+	}
+
 	showCompetitions = (search) => {
 		this.setState({competitionsToShow: []})
 		var comp;
@@ -26,8 +31,17 @@ export default class SearchScreen extends React.Component {
 		if (search != "") {
 			for (var i = 0; i < global.competitions.length; i++) {
 				comp = global.competitions[i]
+
+				if (this.stringContains(search, comp.compTitle) || 
+					this.stringContains(search, comp.compDescription) || 
+					this.stringContains(search, comp.host)) {
+					// Add competition and move on to next iteration
+					result.add(comp);
+					continue;
+				}
+
 				for (var j = 0; j < comp.tags.length; j++) {
-					if (comp.tags[j].includes(search)) {
+					if (this.stringContains(search, comp.tags[j])) {
 						result.add(comp);
 						break;
 					}
@@ -42,8 +56,6 @@ export default class SearchScreen extends React.Component {
 		this.setState({ search:search,  competitionsToShow: competitionsToShow});
 	};
 
-
-
 	render() {
 		const { search } = this.state;
 
@@ -54,7 +66,13 @@ export default class SearchScreen extends React.Component {
 				placeholder="Search for competitions..."
 				onChangeText={this.updateSearch}
 				value={search}
+				lightTheme={true}
 				/>
+				<View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+					<Text>
+						{this.state.competitionsToShow.length == 0 ? "Search to see competitions here!": ""}
+					</Text>	
+				</View>
 				<ScrollView>
 					{
 						this.state.competitionsToShow.map(
