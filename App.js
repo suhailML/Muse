@@ -18,6 +18,12 @@ export const HomeNavigator = createStackNavigator(
   }
 );
 
+/* HARD-CODED TEST DATA HANDLER BEGIN */
+global.competitions = require("./test_data.json").competitions;
+global.competitions[0].photo = require("./assets/test_photos/503jam.jpg");
+global.competitions[1].photo = require("./assets/test_photos/ableton.png");
+/* HARD-CODED TEST DATA HANDLER END */
+
 
 const bottomTabNavigator = createBottomTabNavigator(
   {

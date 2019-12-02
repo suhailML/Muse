@@ -1,0 +1,46 @@
+{
+	"competitions": [
+		{
+			"compTitle": "Jacob Collier's Competition",
+			"compDescription": "Submit all your musical flexes!",
+			"prize": "A cool t-shirt!",
+			"host": "Jacob Collier",
+			"entries": [
+				{
+					"user": "mattG",
+					"vid": "http://cs-people.bu.edu/elissone/testData/matt.mp4"
+				},
+				{
+					"user": "larnelL",
+					"vid": "http://cs-people.bu.edu/elissone/testData/larnell.mp4"
+				},
+				{
+					"user": "SomeDudeThatIsLessGood",
+					"vid": "http://cs-people.bu.edu/elissone/testData/elisson.mp4"
+				}
+			]
+		},
+		{	
+			"compTitle": "Plini's Competition",
+			"compDescription": "Remix My Song Salt and Charcoal",
+			"prize": "Concert Tickets to my upcoming show",
+			"photo": "./../assets/test_photos/ableton.png",
+			"host": "Plini H",
+			"entries": [
+				{
+					"user": "mattG",
+					"vid": "http://cs-people.bu.edu/elissone/testData/matt.mp4"
+				},
+				{
+					"user": "larnelL",
+					"vid": "http://cs-people.bu.edu/elissone/testData/larnell.mp4"
+				},
+				{
+					"user": "SomeDudeThatIsLessGood",
+					"vid": "http://cs-people.bu.edu/elissone/testData/elisson.mp4"
+				}
+			]
+
+		}
+	]
+}

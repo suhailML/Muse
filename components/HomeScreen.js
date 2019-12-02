@@ -5,42 +5,6 @@ import CompetitionPreview from "./CompetitionPreview"
 // Currently Implements some tests for voting system, in which a max number of votes 
 // Are enforced per compentition
 
-// Hardcoded set of video submissions
-var entries = [
-	{
-		user: 'mattG',
-		vid: 'http://cs-people.bu.edu/elissone/testData/matt.mp4'
-	},
-	{
-		user: 'larnelL',
-		vid: 'http://cs-people.bu.edu/elissone/testData/larnell.mp4'
-	},
-	{
-		user: 'SomeDudeThatIsLessGood',
-		vid: 'http://cs-people.bu.edu/elissone/testData/elisson.mp4'
-	}
-];
-
-// Hardcoded set of Competitions
-var competitions = [
-	{
-		compTitle: "Jacob Collier's Competition",
-		compDescription: "Submit all your musical flexes!",
-		prize: "A cool t-shirt!",
-		photo: require("./../assets/test_photos/503jam.jpg"),
-		host: "Jacob Collier",
-		entries: Object.assign(entries)
-	},
-	{
-		compTitle: "Plini's Competition",
-		compDescription: "Remix My Song Salt and Charcoal",
-		prize: "Concert Tickets to my upcoming show",
-		photo: require("./../assets/test_photos/ableton.png"),
-		host: "Plini H",
-		entries: Object.assign(entries)
-	}
-];
-
 // Shows available competitions
 export default class HomeScreen extends Component {
   static navigationOptions = {
@@ -67,7 +31,7 @@ export default class HomeScreen extends Component {
     	<Text style={style.title}>List of Available Competitions</Text>
 	      <ScrollView>
 	        {
-	        	competitions.map(
+	        	global.competitions.map(
 	        		(comp, index) => {
 	        			return <CompetitionPreview key={index} details={comp}
 	        			navigation={this.props.navigation}/>
