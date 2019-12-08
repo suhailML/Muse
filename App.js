@@ -3,6 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import {createAppContainer} from 'react-navigation';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import { createStackNavigator } from 'react-navigation-stack';
+import * as Font from 'expo-font';
 
 import SearchScreen from './components/SearchScreen';
 import MicrophoneScreen from './components/MicrophoneScreen';
@@ -10,6 +11,17 @@ import MessageScreen from './components/MessageScreen';
 import HomeScreen from './components/HomeScreen';
 import ProfileScreen from './components/ProfileScreen';
 import Competition from './components/Competition';
+
+import {DEFAULT} from './assets/style/StyleSheet';
+
+/* HARD-CODED TEST DATA HANDLER BEGIN */
+global.competitions = require("./test_data.json").competitions;
+global.competitions[0].photo = require("./assets/test_photos/503jam.jpg");
+global.competitions[1].photo = require("./assets/test_photos/plini.jpg");
+global.competitions[2].photo = require("./assets/test_photos/ableton.png");
+global.competitions[3].photo = require("./assets/test_photos/tosin.jpg");
+global.competitions[4].photo = require("./assets/test_photos/roy.jpg");
+/* HARD-CODED TEST DATA HANDLER END */
 
 export const HomeNavigator = createStackNavigator(
   {
@@ -25,16 +37,6 @@ export const SearchNavigator = createStackNavigator(
   }
 );
 
-/* HARD-CODED TEST DATA HANDLER BEGIN */
-global.competitions = require("./test_data.json").competitions;
-global.competitions[0].photo = require("./assets/test_photos/503jam.jpg");
-global.competitions[1].photo = require("./assets/test_photos/plini.jpg");
-global.competitions[2].photo = require("./assets/test_photos/ableton.png");
-global.competitions[3].photo = require("./assets/test_photos/tosin.jpg");
-global.competitions[4].photo = require("./assets/test_photos/roy.jpg");
-/* HARD-CODED TEST DATA HANDLER END */
-
-
 const bottomTabNavigator = createBottomTabNavigator(
   {
     Home: HomeNavigator,
@@ -44,7 +46,12 @@ const bottomTabNavigator = createBottomTabNavigator(
     Profile: ProfileScreen,
   },
   {
-    initialRouteName: 'Home'
+    initialRouteName: 'Home',
+    tabBarOptions: {
+      style: {
+        backgroundColor: '#000000'
+      }
+    }
   }
 );
 
@@ -52,9 +59,32 @@ const bottomTabNavigator = createBottomTabNavigator(
 const AppContainer = createAppContainer(bottomTabNavigator);
 
 export default class App extends React.Component {
-  render() {
-    return (
-        <AppContainer />
+  state = {
+      assetsLoaded: false,
+  };
+
+  async componentDidMount() {
+    await Font.loadAsync(
+      {
+        'proxima-nova-regular': 
+          require('./assets/fonts/ProximaNova/ProximaNova-Regular.otf'),
+        'proxima-nova-bold': 
+          require('./assets/fonts/ProximaNova/ProximaNovaBold.otf'),
+        'proxima-nova-semibold': 
+          require('./assets/fonts/ProximaNova/ProximaNovaSemibold.otf'),
+      }
     );
+
+    this.setState({ assetsLoaded: true });
+  }
+
+  render() {
+    if (this.state.assetsLoaded) {
+      return (
+          <AppContainer />
+      );
+    } else {
+      return null;
+    }
   }
 }
