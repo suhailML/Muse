@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19003,
-  "packagerPid": 52530,
-  "expoServerNgrokUrl": "https://q6-c86.anonymous.muse.exp.direct",
-  "packagerNgrokUrl": "https://packager.q6-c86.anonymous.muse.exp.direct",
-  "ngrokPid": 52550
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }
