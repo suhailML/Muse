@@ -11,7 +11,6 @@ class CompetitionPreview extends Component {
 		super(props);
 	}
 
-
 	render() {
     const navigate = this.props.navigation.navigate;
 

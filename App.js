@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Dimensions, Image} from 'react-native';
 import {createAppContainer} from 'react-navigation';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import { createStackNavigator } from 'react-navigation-stack';
@@ -11,6 +11,9 @@ import MessageScreen from './components/MessageScreen';
 import HomeScreen from './components/HomeScreen';
 import ProfileScreen from './components/ProfileScreen';
 import Competition from './components/Competition';
+import NavigationIcon from './components/NavigationIcon';
+import NavigationTitle from './components/NavigationTitle';
+
 
 import {DEFAULT} from './assets/style/StyleSheet';
 
@@ -22,6 +25,7 @@ global.competitions[2].photo = require("./assets/test_photos/ableton.png");
 global.competitions[3].photo = require("./assets/test_photos/tosin.jpg");
 global.competitions[4].photo = require("./assets/test_photos/roy.jpg");
 /* HARD-CODED TEST DATA HANDLER END */
+
 
 export const HomeNavigator = createStackNavigator(
   {
@@ -39,18 +43,76 @@ export const SearchNavigator = createStackNavigator(
 
 const bottomTabNavigator = createBottomTabNavigator(
   {
-    Home: HomeNavigator,
-    Search: SearchNavigator,
-    Record: MicrophoneScreen,
-    Messages: MessageScreen,
-    Profile: ProfileScreen,
+    Home: {
+      screen: HomeNavigator,
+      navigationOptions: {
+        tabBarIcon: ({tintColor}) => {
+          return <NavigationIcon tintColor={tintColor} img={require('./assets/icons/home.png')}/>
+        },
+        showIcon: true,
+        tabBarLabel: ({tintColor, focused}) => {
+          return <NavigationTitle title={"Home"} tintColor={tintColor} focused={focused}/>
+        }
+      }
+    },
+    Search: {
+      screen: SearchNavigator,
+      navigationOptions: {
+        tabBarIcon: ({tintColor}) => {
+          return <NavigationIcon tintColor={tintColor} img={require('./assets/icons/search.png')}/>
+        },
+        showIcon: true,
+        tabBarLabel: ({tintColor, focused}) => {
+          return <NavigationTitle title={"Search"} tintColor={tintColor} focused={focused}/>
+        }
+      }
+    },
+    Record: {
+      screen: MicrophoneScreen,
+      navigationOptions: {
+        tabBarIcon: ({tintColor}) => {
+          return <NavigationIcon tintColor={tintColor} img={require('./assets/icons/record.png')}/>
+        },
+        showIcon: true,
+        tabBarLabel: ({tintColor, focused}) => {
+          return <NavigationTitle title={"Record"} tintColor={tintColor} focused={focused}/>
+        }
+      }
+    },
+    Messages: {
+      screen: MessageScreen,
+      navigationOptions: {
+        tabBarIcon: ({tintColor}) => {
+          return <NavigationIcon tintColor={tintColor} img={require('./assets/icons/message.png')}/>
+        },
+        showIcon: true,
+        tabBarLabel: ({tintColor, focused}) => {
+          return <NavigationTitle title={"Messages"} tintColor={tintColor} focused={focused}/>
+        }
+      }
+    },
+    Profile: {
+      screen: ProfileScreen,
+      navigationOptions: {
+        tabBarIcon: ({tintColor}) => {
+          return <NavigationIcon tintColor={tintColor} img={require('./assets/icons/profile.png')}/>
+        },
+        showIcon: true,
+        tabBarLabel: ({tintColor, focused}) => {
+          return <NavigationTitle title={"Profile"} tintColor={tintColor} focused={focused}/>
+        }
+      }
+    }
   },
   {
     initialRouteName: 'Home',
     tabBarOptions: {
       style: {
-        backgroundColor: '#000000'
-      }
+        backgroundColor: '#000000',
+        height: 53
+      },
+      activeTintColor: DEFAULT.COLOR.CORAL_2,
+      inactiveTintColor: DEFAULT.COLOR.WHITE,
     }
   }
 );

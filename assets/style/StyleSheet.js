@@ -36,7 +36,7 @@ export const DEFAULT = {
 		},
 		BUTTON: {
 			fontSize: 12,
-			fontFamily: 'proxima-nova-semibold'
+			fontFamily: 'proxima-nova-semibold',
 		},
 		BODY_1: {
 			fontSize: 12,
