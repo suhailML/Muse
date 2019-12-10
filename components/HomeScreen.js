@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 import {ScrollView, SafeAreaView, Text } from "react-native";
+
 import CompetitionPreview from "./CompetitionPreview"
+
+import {DEFAULT} from "./../assets/style/StyleSheet"
 
 // Currently Implements some tests for voting system, in which a max number of votes 
 // Are enforced per compentition
@@ -14,10 +17,11 @@ export default class HomeScreen extends Component {
   render() {
   	const style = {
   	  main: {
-  		padding: 10, 
+  		  padding: 10, 
         flex: 1, 
         justifyContent: 'center', 
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: DEFAULT.COLOR.GRAY_1
   	  },
       title: {
         fontSize: 25,
@@ -28,7 +32,6 @@ export default class HomeScreen extends Component {
     };
     return(
     	<SafeAreaView style={style.main}>
-    	<Text style={style.title}>List of Available Competitions</Text>
 	      <ScrollView>
 	        {
 	        	global.competitions.map(

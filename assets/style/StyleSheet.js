@@ -11,6 +11,7 @@ export const DEFAULT = {
 		CORAL_1: '#CC6349',
 		CORAL_2: '#FF7C5C',
 		CORAL_3: '#FFA38D',
+		CORAL_TRANSP: 'rgba(255, 124, 92, 0.28)',
 		YELLOW_1: '#D8912F',
 		YELLOW_2: '#FEAB38',
 		YELLOW_3: '#FEC87D',
@@ -18,7 +19,8 @@ export const DEFAULT = {
 		GRAY_2: '#333539',
 		GRAY_3: '#9E9EA0',
 		GRAY_4: '#C5C5C6',
-		BLACK: '#141519',
+		BLACK_1: '#141519',
+		BLACK_TRANSP: 'rgba(22, 21, 20, 0.7)',
 		WHITE: '#FFFFFF'
 	},
 	TEXT: {
@@ -35,8 +37,9 @@ export const DEFAULT = {
 			fontFamily: 'proxima-nova-bold'
 		},
 		BUTTON: {
-			fontSize: 12,
+			fontSize: 13,
 			fontFamily: 'proxima-nova-semibold',
+			color: 'white'
 		},
 		BODY_1: {
 			fontSize: 12,
@@ -49,6 +52,27 @@ export const DEFAULT = {
 		CAPTION: {
 			fontSize: 10,
 			fontFamily: 'proxima-nova-regular'
+		},
+		COMP_TITLE: {
+			fontSize: 18,
+			fontFamily: 'proxima-nova-semibold',
+			color: 'rgb(53, 53, 53)',
+			position: 'absolute',
+			bottom: 29,
+			left: 14
+		},
+		COMP_HOST: {
+			fontSize: 14,
+			fontFamily: 'proxima-nova-regular',
+			color: 'rgb(53, 53, 53)',
+			position: 'absolute',
+			bottom: 9,
+			left: 14
+		},
+		TAG: {
+			fontSize: 17,
+			fontFamily: 'proxima-nova-bold',
+			color: 'white',
 		}
 	}
 
