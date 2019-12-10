@@ -10,9 +10,7 @@ import {DEFAULT} from "./../assets/style/StyleSheet"
 
 // Shows available competitions
 export default class HomeScreen extends Component {
-  static navigationOptions = {
-    title: 'Home'
-  };
+  static navigationOptions = {header: null};
 
   render() {
   	const style = {

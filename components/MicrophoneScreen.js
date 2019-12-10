@@ -6,6 +6,8 @@ import * as MediaLibrary from "expo-media-library";
 
 
 export default class MicrophoneScreen extends Component {
+  static navigationOptions = {header: null};
+
   state = {
     video: null,
     picture: null,

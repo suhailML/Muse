@@ -1,7 +1,9 @@
 import React from "react";
-import { View, SafeAreaView, Text, ScrollView} from "react-native";
+import { View, SafeAreaView, Text, ScrollView, Dimensions} from "react-native";
 import { SearchBar } from 'react-native-elements';
 import CompetitionPreview from "./CompetitionPreview";
+
+import {DEFAULT} from './../assets/style/StyleSheet';
 
 /*
  * TEMPORARY SIMPLE IMPLEMENTATION OF A SEARCH PAGE
@@ -10,6 +12,8 @@ import CompetitionPreview from "./CompetitionPreview";
  */
 
 export default class SearchScreen extends React.Component {
+	static navigationOptions = {header: null};
+
 	state = {
 		search: '',
 	};
@@ -59,30 +63,75 @@ export default class SearchScreen extends React.Component {
 	render() {
 		const { search } = this.state;
 
+		const style = {
+			inputContainerStyle: {
+				backgroundColor: 'rgb(239, 239, 239)',
+				height: 35,
+				width: 379,
+				top: 0,
+				position: 'absolute',
+				borderRadius: 8
+			},
+			inputStyle: {
+				fontFamily: 'proxima-nova-regular',
+				color: DEFAULT.COLOR.GRAY_1
+			},
+			containerStyle: {
+				padding: 0,
+				height: 35,
+				width: 379,
+				top: 4,
+				borderRadius: 8,
+				backgroundColor: 'transparent',
+				borderBottomWidth: 0.0,
+				borderTopWidth: 0.0
+
+			},
+			scrollView: {
+				// backgroundColor: DEFAULT.COLOR.GRAY_1
+			},
+			safeView: { 
+				flex: 1, 
+				alignItems: 'center',
+				// backgroundColor: DEFAULT.COLOR.GRAY_1
+			},
+			scrollView: {
+				justifyContent: 'flex-start',
+			},
+			grayBackground: {
+				height: Dimensions.get('window').height,
+				width: Dimensions.get('window').width,
+				backgroundColor: DEFAULT.COLOR.GRAY_1,
+				alignItems: 'center',
+				top: 18,
+				borderRadius: 15
+			}
+		};
 		return(
-			<SafeAreaView style={{flex: 1}}>
-				{/*<Text> This is my Search screen </Text>*/}
+			<SafeAreaView style={style.safeView}>
 				<SearchBar
-				placeholder="Search for competitions..."
+				placeholder="Search"
 				onChangeText={this.updateSearch}
 				value={search}
 				lightTheme={true}
+				round
+				placeholderTextColor={'rgb(117, 117, 117)'}
+				inputContainerStyle={style.inputContainerStyle}
+				inputStyle={style.inputStyle}
+				containerStyle={style.containerStyle}
 				/>
-				<View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-					<Text>
-						{this.state.competitionsToShow.length == 0 ? "Search to see competitions here!": ""}
-					</Text>	
+				<View style={style.grayBackground}>
+					<ScrollView contentContainerStyle={style.scrollView}>
+						{
+							this.state.competitionsToShow.map(
+								(comp, index) => {
+									return <CompetitionPreview key={index} details={comp}
+									navigation={this.props.navigation}/>
+								}
+							)
+						}
+					</ScrollView>
 				</View>
-				<ScrollView>
-					{
-						this.state.competitionsToShow.map(
-							(comp, index) => {
-								return <CompetitionPreview key={index} details={comp}
-								navigation={this.props.navigation}/>
-							}
-						)
-					}
-				</ScrollView>
 			</SafeAreaView>
 		);
 	}

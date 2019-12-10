@@ -21,7 +21,7 @@ class CompetitionPreview extends Component {
     const width = 379;
   	const style = {
   		main: {
-        marginBottom: 17.5,
+        marginTop: 17.5,
         flex: 1, 
         justifyContent: 'center', 
         alignItems: 'center', 

@@ -5,9 +5,6 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 // Displays a single competition
 class Competition extends Component {
-  static navigationOptions = {
-    title: 'Competition',
-  };
 
 	constructor(props) {
 		super(props);

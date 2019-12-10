@@ -52,7 +52,8 @@ const bottomTabNavigator = createBottomTabNavigator(
         showIcon: true,
         tabBarLabel: ({tintColor, focused}) => {
           return <NavigationTitle title={"Home"} tintColor={tintColor} focused={focused}/>
-        }
+        },
+        header: null
       }
     },
     Search: {
@@ -64,7 +65,8 @@ const bottomTabNavigator = createBottomTabNavigator(
         showIcon: true,
         tabBarLabel: ({tintColor, focused}) => {
           return <NavigationTitle title={"Search"} tintColor={tintColor} focused={focused}/>
-        }
+        },
+        header: null
       }
     },
     Record: {
@@ -76,7 +78,8 @@ const bottomTabNavigator = createBottomTabNavigator(
         showIcon: true,
         tabBarLabel: ({tintColor, focused}) => {
           return <NavigationTitle title={"Record"} tintColor={tintColor} focused={focused}/>
-        }
+        },
+        header: null
       }
     },
     Messages: {
@@ -88,7 +91,8 @@ const bottomTabNavigator = createBottomTabNavigator(
         showIcon: true,
         tabBarLabel: ({tintColor, focused}) => {
           return <NavigationTitle title={"Messages"} tintColor={tintColor} focused={focused}/>
-        }
+        },
+        header: null
       }
     },
     Profile: {
@@ -100,7 +104,8 @@ const bottomTabNavigator = createBottomTabNavigator(
         showIcon: true,
         tabBarLabel: ({tintColor, focused}) => {
           return <NavigationTitle title={"Profile"} tintColor={tintColor} focused={focused}/>
-        }
+        },
+        header: null
       }
     }
   },
